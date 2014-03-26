@@ -13,7 +13,7 @@ public class TankClient extends Frame {
 	public static final int GAME_WIDTH = 800;
 	public static final int GAME_HEIGHT = 600;
 	
-	Tank myTank = new Tank(50, 50, true, Tank.Direction.STOP, this);
+	Tank myTank = new Tank(50, 50, true, Direction.STOP, this);
 	
 	List<Missile> missiles = new ArrayList<Missile>();
 	List<Explode> explodes = new ArrayList<Explode>();
@@ -66,7 +66,7 @@ public class TankClient extends Frame {
 	public void launchFrame() {
 		
 		for(int i=0; i<10; i++) {
-			tanks.add(new Tank(50 + 40*(i+1), 50, false, Tank.Direction.D, this));
+			tanks.add(new Tank(50 + 40*(i+1), 50, false, Direction.DOWN, this));
 		}
 		
 		this.setLocation(400, 300);

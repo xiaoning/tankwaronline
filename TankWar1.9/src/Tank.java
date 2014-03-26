@@ -23,10 +23,9 @@ public class Tank {
 	TankClient tc;
 	
 	boolean bL, bU, bR, bD;
-	enum Direction {L, LU, U, RU, R, RD, D, LD, STOP};
 	
 	Direction dir = Direction.STOP;
-	Direction ptDir = Direction.D;
+	Direction ptDir = Direction.DOWN;
 	
 	public Tank(int x, int y, boolean good) {
 		this.x = x;
@@ -55,28 +54,28 @@ public class Tank {
 		g.setColor(c);
 		
 		switch(ptDir) {
-		case L:	
+		case LEFT:	
 			g.drawLine(x + WIDTH/2, y + HEIGHT/2, x, y + HEIGHT/2);
 			break;
-		case LU:
+		case LEFTUP:
 			g.drawLine(x + WIDTH/2, y + HEIGHT/2, x, y);
 			break;
-		case U:
+		case UP:
 			g.drawLine(x + WIDTH/2, y + HEIGHT/2, x + WIDTH/2, y);
 			break;
-		case RU:
+		case RIGHTUP:
 			g.drawLine(x + WIDTH/2, y + HEIGHT/2, x + WIDTH, y);
 			break;
-		case R:
+		case RIGHT:
 			g.drawLine(x + WIDTH/2, y + HEIGHT/2, x + WIDTH, y + HEIGHT/2);
 			break;
-		case RD:
+		case RIGHTDOWN:
 			g.drawLine(x + WIDTH/2, y + HEIGHT/2, x + WIDTH, y + HEIGHT);
 			break;
-		case D:
+		case DOWN:
 			g.drawLine(x + WIDTH/2, y + HEIGHT/2, x + WIDTH/2, y + HEIGHT);
 			break;
-		case LD:
+		case LEFTDOWN:
 			g.drawLine(x + WIDTH/2, y + HEIGHT/2, x, y + HEIGHT);
 			break;
 		}
@@ -86,31 +85,31 @@ public class Tank {
 
 	private void move() {
 		switch(dir) {
-		case L:
+		case LEFT:
 			x -= XSPEED;
 			break;
-		case LU:
+		case LEFTUP:
 			x -= XSPEED;
 			y -= YSPEED;
 			break;
-		case U:
+		case UP:
 			y -= YSPEED;
 			break;
-		case RU:
+		case RIGHTUP:
 			x += XSPEED;
 			y -= YSPEED;
 			break;
-		case R:
+		case RIGHT:
 			x += XSPEED;
 			break;
-		case RD:
+		case RIGHTDOWN:
 			x += XSPEED;
 			y += YSPEED;
 			break;
-		case D:
+		case DOWN:
 			y += YSPEED;
 			break;
-		case LD:
+		case LEFTDOWN:
 			x -= XSPEED;
 			y += YSPEED;
 			break;
@@ -159,14 +158,14 @@ public class Tank {
 	}
 
 	private void locateDirection() {
-		if(bL && !bU && !bR && !bD) dir = Direction.L;
-		else if(bL && bU && !bR && !bD) dir = Direction.LU;
-		else if(!bL && bU && !bR && !bD) dir = Direction.U;
-		else if(!bL && bU && bR && !bD) dir = Direction.RU;
-		else if(!bL && !bU && bR && !bD) dir = Direction.R;
-		else if(!bL && !bU && bR && bD) dir = Direction.RD;
-		else if(!bL && !bU && !bR && bD) dir = Direction.D;
-		else if(bL && !bU && !bR && bD) dir = Direction.LD;
+		if(bL && !bU && !bR && !bD) dir = Direction.LEFT;
+		else if(bL && bU && !bR && !bD) dir = Direction.LEFTUP;
+		else if(!bL && bU && !bR && !bD) dir = Direction.UP;
+		else if(!bL && bU && bR && !bD) dir = Direction.RIGHTUP;
+		else if(!bL && !bU && bR && !bD) dir = Direction.RIGHT;
+		else if(!bL && !bU && bR && bD) dir = Direction.RIGHTDOWN;
+		else if(!bL && !bU && !bR && bD) dir = Direction.DOWN;
+		else if(bL && !bU && !bR && bD) dir = Direction.LEFTDOWN;
 		else if(!bL && !bU && !bR && !bD) dir = Direction.STOP;
 	}
 

@@ -15,18 +15,18 @@ public class Missile {
 	TankClient tc;
 	
 	int x, y;
-	Tank.Direction dir = Tank.Direction.R;
+	Direction dir = Direction.RIGHT;
 	boolean live = true;
 	private boolean good;
 	
-	public Missile(int x, int y, boolean good, Tank.Direction dir) {
+	public Missile(int x, int y, boolean good, Direction dir) {
 		this.x = x;
 		this.y = y;
 		this.good = good;
 		this.dir = dir;
 	}
 	
-	public Missile(int x, int y, boolean good, Tank.Direction dir, TankClient tc) {
+	public Missile(int x, int y, boolean good, Direction dir, TankClient tc) {
 		this(x, y, good, dir);
 		this.tc = tc;
 	}
@@ -47,31 +47,31 @@ public class Missile {
 
 	private void move() {
 		switch(dir) {
-		case L:
+		case LEFT:
 			x -= XSPEED;
 			break;
-		case LU:
+		case LEFTUP:
 			x -= XSPEED;
 			y -= YSPEED;
 			break;
-		case U:
+		case UP:
 			y -= YSPEED;
 			break;
-		case RU:
+		case RIGHTUP:
 			x += XSPEED;
 			y -= YSPEED;
 			break;
-		case R:
+		case RIGHT:
 			x += XSPEED;
 			break;
-		case RD:
+		case RIGHTDOWN:
 			x += XSPEED;
 			y += YSPEED;
 			break;
-		case D:
+		case DOWN:
 			y += YSPEED;
 			break;
-		case LD:
+		case LEFTDOWN:
 			x -= XSPEED;
 			y += YSPEED;
 			break;
