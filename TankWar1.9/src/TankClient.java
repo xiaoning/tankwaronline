@@ -56,7 +56,7 @@ public class TankClient extends Frame {
 		}
 		Graphics gOffScreen = offScreenImage.getGraphics();
 		Color c = gOffScreen.getColor();
-		gOffScreen.setColor(Color.GREEN);
+		gOffScreen.setColor(Color.GRAY);
 		gOffScreen.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 		gOffScreen.setColor(c);
 		paint(gOffScreen);
@@ -64,10 +64,6 @@ public class TankClient extends Frame {
 	}
 	
 	public void launchFrame() {
-		
-		for(int i=0; i<10; i++) {
-			tanks.add(new Tank(50 + 40*(i+1), 50, false, Direction.DOWN, this));
-		}
 		
 		this.setLocation(400, 300);
 		this.setSize(GAME_WIDTH, GAME_HEIGHT);

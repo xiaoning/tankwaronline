@@ -48,8 +48,8 @@ public class Tank {
 		}
 		
 		Color c = g.getColor();
-		if(good) g.setColor(Color.RED);
-		else g.setColor(Color.BLUE);
+		if(good) g.setColor(Color.WHITE);
+		else g.setColor(Color.BLACK);
 		g.fillOval(x, y, WIDTH, HEIGHT);
 		g.setColor(c);
 		
@@ -172,7 +172,7 @@ public class Tank {
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
 		switch (key) {
-		case KeyEvent.VK_CONTROL:
+		case KeyEvent.VK_SPACE:
 			fire();
 			break;
 		case KeyEvent.VK_LEFT:
