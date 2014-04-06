@@ -10,7 +10,8 @@ public class Tank {
 	
 	public static final int WIDTH = 30;
 	public static final int HEIGHT = 30;
-	
+
+	int id;
 	boolean good;
 	int x, y;
 	
@@ -51,6 +52,7 @@ public class Tank {
 		if(good) g.setColor(Color.WHITE);
 		else g.setColor(Color.BLACK);
 		g.fillOval(x, y, WIDTH, HEIGHT);
+		g.drawString("id: " + id, x, y - 10);
 		g.setColor(c);
 		
 		switch(ptDir) {

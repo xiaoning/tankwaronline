@@ -19,7 +19,7 @@ public class TankClient extends Frame {
 	List<Explode> explodes = new ArrayList<Explode>();
 	List<Tank> tanks = new ArrayList<Tank>();
 	
-	private NetClient nc = new NetClient();
+	private NetClient nc = new NetClient(this);
 	
 	Image offScreenImage = null;
 	
